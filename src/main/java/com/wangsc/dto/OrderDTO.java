@@ -8,42 +8,64 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @Author wangsc
- * @Date 2019-9-14 23:12
+ * @author wangsc
+ * @date 2019-9-14 23:12
  */
 @Data
 public class OrderDTO {
 
-    /** 买家名字. */
+    /**
+     * 买家名字.
+     */
     private String orderId;
 
-    /** 买家名字. */
+    /**
+     * 买家名字.
+     */
     private String buyerName;
 
-    /** 买家手机号码. */
+    /**
+     * 买家手机号码.
+     */
     private String buyerPhone;
 
-    /** 买家地址. */
+    /**
+     * 买家地址.
+     */
     private String buyerAddress;
 
-    /** 买家微信Openid. */
+    /**
+     * 买家微信Openid.
+     */
     private String buyerOpenid;
 
-    /** 订单总金额. */
+    /**
+     * 订单总金额.
+     */
     private BigDecimal orderAmount;
 
-    /** 订单状态，默认为0新下单. */
+    /**
+     * 订单状态，默认为0新下单.
+     */
     private Integer orderStatus;
 
-    /** 支付状态，默认为0未支付. */
+    /**
+     * 支付状态，默认为0未支付.
+     */
     private Integer payStatus;
 
-    /** 创建时间. */
+    /**
+     * 创建时间.
+     */
     private Date createTime;
 
-    /** 更新时间. */
+    /**
+     * 更新时间.
+     */
     private Date updateTime;
 
-    /** 订单详情列表. */
+    /**
+     * 订单详情列表.
+     */
     private List<OrderDetail> orderDetailList;
 }

@@ -6,9 +6,10 @@ import org.springframework.beans.BeanUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 /**
- * @Author wangsc
- * @Date 2019-9-19 23:25
+ * @author wangsc
+ * @date 2019-9-19 23:25
  */
 public class OrderMasterConverterOrderDTO {
 

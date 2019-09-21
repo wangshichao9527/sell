@@ -3,8 +3,8 @@ package com.wangsc.enums;
 import lombok.Getter;
 
 /**
- * @Author wangsc
- * @Date 2019-9-13 19:53
+ * @author wangsc
+ * @date 2019-9-13 19:53
  */
 @Getter
 public enum PayStatusEnum {

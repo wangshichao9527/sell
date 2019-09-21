@@ -12,7 +12,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * @author wangsc
+ * @date 2019-9-13 15:25
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductCategoryRepositoryTest {

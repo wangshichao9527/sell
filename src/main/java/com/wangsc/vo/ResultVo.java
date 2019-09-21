@@ -2,6 +2,10 @@ package com.wangsc.vo;
 
 import lombok.Data;
 
+/**
+ * @author wangsc
+ * @date 2019-9-13 15:25
+ */
 @Data
 public class ResultVo<T> {
 

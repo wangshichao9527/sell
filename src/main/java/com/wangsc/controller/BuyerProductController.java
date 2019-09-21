@@ -2,11 +2,11 @@ package com.wangsc.controller;
 
 import com.wangsc.dataobject.ProductCategory;
 import com.wangsc.dataobject.ProductInfo;
-import com.wangsc.utils.ResultVoUtil;
-import com.wangsc.vo.ProductVo;
 import com.wangsc.service.CategoryService;
 import com.wangsc.service.ProductInfoService;
+import com.wangsc.utils.ResultVoUtil;
 import com.wangsc.vo.ProductInfoVo;
+import com.wangsc.vo.ProductVo;
 import com.wangsc.vo.ResultVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author wangsc
+ * @date 2019-9-13 15:25
+ */
 @RestController
 @RequestMapping("/buyer/product")
 public class BuyerProductController {
@@ -33,12 +37,12 @@ public class BuyerProductController {
         //1、查出所有的上架商品
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
         //2、查询类目
-            //2.1、传统方法
+        //2.1、传统方法
         ArrayList<Integer> categoryTypeList = new ArrayList<>();
         for (ProductInfo productInfo : productInfoList) {
             categoryTypeList.add(productInfo.getCategoryType());
         }
-            //2.2、精简方法(lambda表达式)
+        //2.2、精简方法(lambda表达式)
         List<Integer> cacategoryTypeList2 = productInfoList.stream()
                 .map(e -> e.getCategoryType())
                 .collect(Collectors.toList());

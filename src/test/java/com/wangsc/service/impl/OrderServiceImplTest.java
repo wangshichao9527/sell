@@ -2,6 +2,8 @@ package com.wangsc.service.impl;
 
 import com.wangsc.dataobject.OrderDetail;
 import com.wangsc.dto.OrderDTO;
+import com.wangsc.enums.OrderStatusEnum;
+import com.wangsc.enums.PayStatusEnum;
 import com.wangsc.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -18,8 +20,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * @Author wangsc
- * @Date 2019-9-15 23:36
+ * @author wangsc
+ * @date 2019-9-15 23:36
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,7 +33,7 @@ public class OrderServiceImplTest {
 
     private final String BUYER_OPENID = "wind_13453452325";
 
-    private final String ORDER_ID = "1568563397586321991";
+    private final String ORDER_ID = "1568564017814650849";
 
     @Test
     public void create() {
@@ -77,13 +79,22 @@ public class OrderServiceImplTest {
 
     @Test
     public void cancel() {
+        OrderDTO orderDTO = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.cancel(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void finish() {
+        OrderDTO orderDTO = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.finish(orderDTO);
+        Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        OrderDTO orderDTO = orderService.findOne(ORDER_ID);
+        OrderDTO result = orderService.paid(orderDTO);
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
     }
 }

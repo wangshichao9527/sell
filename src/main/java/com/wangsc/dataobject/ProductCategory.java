@@ -8,8 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * 类名
- *
+ * @author wangsc
+ * @date 2019-9-13 15:25
  */
 @Entity
 @Data
@@ -25,7 +25,6 @@ public class ProductCategory {
 
     /*** 类目编号*/
     private Integer categoryType;
-
 
 
 }

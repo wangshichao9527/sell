@@ -3,14 +3,14 @@ package com.wangsc.enums;
 import lombok.Getter;
 
 /**
- * @Author wangsc
- * @Date 2019-9-13 19:47
+ * @author wangsc
+ * @date 2019-9-13 19:47
  */
 @Getter
 public enum OrderStatusEnum {
     NEW(0, "新订单"),
-    FINISHED(1, "完结"),
-    CANCEL(2, "已取消");
+    CANCEL(2, "已取消"),
+    FINISHED(3, "完结");
 
     private Integer code;
 

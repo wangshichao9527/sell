@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 /**
- * @Author wangsc
- * @Date 2019-9-14 23:15
+ * @author wangsc
+ * @date 2019-9-14 23:15
  */
 public interface OrderService {
 
@@ -25,13 +25,18 @@ public interface OrderService {
      */
     Page<OrderDTO> findList(String buyerOpenid, Pageable pageable);
 
-    /** 取消订单. */
-    OrderDTO cancel(OrderDTO orderDTo);
+    /**
+     * 取消订单.
+     */
+    OrderDTO cancel(OrderDTO orderDTO);
 
-    /** 完结订单. */
-    OrderDTO finish(OrderDTO orderDTo);
+    /**
+     * 完结订单.
+     */
+    OrderDTO finish(OrderDTO orderDTO);
 
-    /** 支付订单. */
-    OrderDTO paid(OrderDTO orderDTo);
-
+    /**
+     * 支付订单.
+     */
+    OrderDTO paid(OrderDTO orderDTO);
 }

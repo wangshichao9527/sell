@@ -7,6 +7,10 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+/**
+ * @author wangsc
+ * @date 2019-9-13 15:25
+ */
 public interface ProductInfoService {
 
     ProductInfo findById(String productId);
@@ -21,5 +25,5 @@ public interface ProductInfoService {
     void increaseStock(List<CartDTO> cartDTOList);
 
     //减库存
-    void deincreaseStock(List<CartDTO> cartDTOList);
+    void decreaseStock(List<CartDTO> cartDTOList);
 }

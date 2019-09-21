@@ -3,8 +3,8 @@ package com.wangsc.dto;
 import lombok.Data;
 
 /**
- * @Author wangsc
- * @Date 2019-9-15 22:42
+ * @author wangsc
+ * @date 2019-9-15 22:42
  */
 @Data
 public class CartDTO {

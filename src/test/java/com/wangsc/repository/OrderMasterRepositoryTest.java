@@ -16,8 +16,8 @@ import java.math.BigDecimal;
 import static org.junit.Assert.*;
 
 /**
- * @Author wangsc
- * @Date 2019-9-13 20:36
+ * @author wangsc
+ * @date 2019-9-13 20:36
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -15,6 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * @author wangsc
+ * @date 2019-9-13 15:25
+ */
 @Service
 public class ProductInfoServiceImpl implements ProductInfoService {
 
@@ -43,13 +47,23 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     }
 
     @Override
+    @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            productInfo.setProductStock(result);
+            repository.save(productInfo);
+        }
 
     }
 
     @Override
     @Transactional
-    public void deincreaseStock(List<CartDTO> cartDTOList) {
+    public void decreaseStock(List<CartDTO> cartDTOList) {
 
         for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = findById(cartDTO.getProductId());

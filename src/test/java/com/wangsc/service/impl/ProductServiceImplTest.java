@@ -12,7 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-
+/**
+ * @author wangsc
+ * @date 2019-9-13 15:25
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductServiceImplTest {
