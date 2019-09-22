@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author wangsc
@@ -28,7 +29,16 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
     @Override
     public ProductInfo findById(String productId) {
-        return repository.findById(productId).get();
+//        return repository.findById(productId).get();
+        Optional<ProductInfo> productOptional = repository.findById(productId);
+        //Optional<T> findById(ID id)中Optional的isPresent()用法
+        if (productOptional.isPresent()) {
+            // 处理 foo ...
+            return productOptional.get();
+        } else {
+            //另一种情况....
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
     }
 
     @Override

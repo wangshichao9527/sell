@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 2019-9-13 15:25
  */
 @Data
-public class ResultVo<T> {
+public class ResultVO<T> {
 
     /**
      * 错误码
@@ -15,7 +15,7 @@ public class ResultVo<T> {
     private int code;
 
     /**
-     * 错误码
+     * 错误信息
      */
     private String msg;
 

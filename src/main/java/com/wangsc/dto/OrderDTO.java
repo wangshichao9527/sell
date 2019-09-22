@@ -1,6 +1,8 @@
 package com.wangsc.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.wangsc.dataobject.OrderDetail;
+import com.wangsc.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -12,6 +14,8 @@ import java.util.List;
  * @date 2019-9-14 23:12
  */
 @Data
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)    此方法已过时
+//@JsonInclude(JsonInclude.Include.NON_NULL)    已在yml中配置全局
 public class OrderDTO {
 
     /**
@@ -57,11 +61,13 @@ public class OrderDTO {
     /**
      * 创建时间.
      */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /**
      * 更新时间.
      */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     /**

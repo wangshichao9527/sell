@@ -4,21 +4,20 @@ import lombok.Getter;
 
 /**
  * @author wangsc
- * @date 2019-9-13 19:53
+ * @version 1.0
+ * @date 2019-9-22 15:30
  */
 @Getter
-public enum PayStatusEnum {
+public enum CategoryEnum {
 
-    WAIT(0, "等待支付"),
-    SUCCESS(1, "支付成功"),
-    FAIL(2, "支付失败"),
+    CATEGORY_NOT_EXIST(0, "商品类目不存在"),
     ;
 
     private Integer code;
 
     private String message;
 
-    PayStatusEnum(Integer code, String message) {
+    CategoryEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

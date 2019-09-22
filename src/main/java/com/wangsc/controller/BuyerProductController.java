@@ -4,10 +4,10 @@ import com.wangsc.dataobject.ProductCategory;
 import com.wangsc.dataobject.ProductInfo;
 import com.wangsc.service.CategoryService;
 import com.wangsc.service.ProductInfoService;
-import com.wangsc.utils.ResultVoUtil;
+import com.wangsc.utils.ResultVOUtil;
 import com.wangsc.vo.ProductInfoVo;
 import com.wangsc.vo.ProductVo;
-import com.wangsc.vo.ResultVo;
+import com.wangsc.vo.ResultVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +33,7 @@ public class BuyerProductController {
     private CategoryService categoryService;
 
     @GetMapping("/list")
-    public ResultVo List() {
+    public ResultVO List() {
         //1、查出所有的上架商品
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
         //2、查询类目
@@ -49,7 +49,7 @@ public class BuyerProductController {
         //3拼装方法
         //3.1、首先查询商品类目列表
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
-        //分析date数据是由 resultVo->ProductVo->productVoList->productVo
+        //分析date数据是由 resultVO->ProductVo->productVoList->productVo
         ArrayList<ProductVo> productVoList = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {
             ProductVo productVo = new ProductVo();
@@ -69,6 +69,6 @@ public class BuyerProductController {
             productVoList.add(productVo);
         }
 
-        return ResultVoUtil.success(productVoList);
+        return ResultVOUtil.success(productVoList);
     }
 }

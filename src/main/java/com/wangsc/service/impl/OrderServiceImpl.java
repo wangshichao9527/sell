@@ -78,8 +78,8 @@ public class OrderServiceImpl implements OrderService {
         }
         //写订单详情数据
         OrderMaster orderMaster = new OrderMaster();
+        orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO, orderMaster);
-        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
@@ -193,7 +193,7 @@ public class OrderServiceImpl implements OrderService {
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
         if (updateResult == null) {
             log.error("【完结支付】更新失败，orderMaster={}", orderMaster);
-            throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
+            throw new SellException(PayStatusEnum.FAIL);
         }
         return orderDTO;
     }

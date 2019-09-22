@@ -1,6 +1,8 @@
 package com.wangsc.service.impl;
 
 import com.wangsc.dataobject.ProductCategory;
+import com.wangsc.enums.CategoryEnum;
+import com.wangsc.exception.SellException;
 import com.wangsc.repository.ProductCategoryRepository;
 import com.wangsc.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,12 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public ProductCategory findById(Integer categoryId) {
-        Optional<ProductCategory> category = repository.findById(categoryId);
-        ProductCategory productCategory = category.get();
-        return productCategory;
+        Optional<ProductCategory> categoryOptional = repository.findById(categoryId);
+        if (categoryOptional.isPresent()) {
+            throw new SellException(CategoryEnum.CATEGORY_NOT_EXIST);
+        } else {
+            return categoryOptional.get();
+        }
     }
 
     @Override
